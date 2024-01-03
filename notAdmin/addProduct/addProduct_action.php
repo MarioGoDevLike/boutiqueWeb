@@ -32,7 +32,6 @@ if (isset($image)) {
 
         move_uploaded_file($file_tmp, "images/" . $file_name);
     } else {
-        print_r($errors);
     }
 }
 
