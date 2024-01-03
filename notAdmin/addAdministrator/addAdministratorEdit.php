@@ -25,7 +25,6 @@ if (isset($_POST['submit'])) {
     $sql = "update admin set admin_id=$id, username = '$username', email='$email', password='$password' where admin_id=$id";
     $result = mysqli_query($con, $sql);
     if ($result) {
-        echo "Data Updated Successfully";
         header('location:../Dashboard/dashboard.php');
     } else {
         die(mysqli_error($con));

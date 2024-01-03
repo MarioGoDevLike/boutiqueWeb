@@ -31,7 +31,6 @@ if (isset($_POST['submit'])) {
     $sql = "update users set user_id=$id, first_name='$firstname', last_name = '$lastname', email='$email', birthday='$birthday', gender='$gender', password='$password' where user_id=$id";
     $result = mysqli_query($con, $sql);
     if ($result) {
-        echo "Data Updated Successfully";
         header('location:../Dashboard/dashboard.php');
     } else {
         die(mysqli_error($con));
