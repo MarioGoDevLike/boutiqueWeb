@@ -1,5 +1,5 @@
 <?php
-include("../Ecommerce/backend/connection.php");
+include("backend/connection.php");
 session_start();
 $userName = "";
 
@@ -125,7 +125,7 @@ if (isset($_SESSION['email'])) {
                     <li class="list-inline-item m-0 4"><i class="fas fa-star small text-warning"></i></li>
                   </ul>
                   <?php
-                  include("../Ecommerce/backend/connection.php");
+                  include("backend/connection.php");
                   $sql = "SELECT * FROM products";
                   $result = mysqli_query($con, $sql);
 
@@ -232,7 +232,7 @@ if (isset($_SESSION['email'])) {
               <div class="row">
                 <!-- PRODUCT-->
                 <?php
-                include("../Ecommerce/backend/connection.php");
+                include("backend/connection.php");
                 $sql = "SELECT * FROM products";
                 $result = mysqli_query($con, $sql);
 
@@ -245,7 +245,7 @@ if (isset($_SESSION['email'])) {
 
                       <div class="mb-3 position-relative">
 
-                        <div class="badge text-white bg-"></div><a class="d-block" href="detail.php?product=<?php echo $row['product_id'] ?>"><img class="img-fluid w-100" src="../Ecommerce/notAdmin/addProduct/images/<?php echo $row['product_image']; ?>" alt="..."></a>
+                        <div class="badge text-white bg-"></div><a class="d-block" href="detail.php?product=<?php echo $row['product_id'] ?>"><img class="img-fluid w-100" src="notAdmin/addProduct/images/<?php echo $row['product_image']; ?>" alt="..."></a>
                         <div class="product-overlay">
                           <ul class="mb-0 list-inline">
                             <li class="list-inline-item m-0 p-0"><a class="btn btn-sm btn-outline-dark" onclick="favoriteProduct('<?php echo $row['product_id'] ?>')" href="#!"><i class="far fa-heart"></i></a></li>

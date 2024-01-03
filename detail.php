@@ -1,5 +1,5 @@
 <?php
-include("../Ecommerce/backend/connection.php");
+include("backend/connection.php");
 session_start();
 $userName = "";
 
@@ -158,7 +158,7 @@ if (isset($_SESSION['email'])) {
               </div>
               <div class="col-sm-10 order-1 order-sm-2">
                 <?php
-                include("../Ecommerce/backend/connection.php");
+                include("backend/connection.php");
 
                 if (isset($_GET['product'])) {
                   $product = $_GET['product'];
@@ -170,7 +170,7 @@ if (isset($_SESSION['email'])) {
                 ?>
                   <div class="swiper product-slider">
                     <div class="swiper-wrapper">
-                      <div class="swiper-slide h-auto"><a class="glightbox product-view" href="" data-gallery="gallery2" data-glightbox="Product item 1"><img class="img-fluid" src="../Ecommerce/notAdmin/addProduct/images/<?php echo $row['product_image']; ?>" alt="..."></a></div>
+                      <div class="swiper-slide h-auto"><a class="glightbox product-view" href="" data-gallery="gallery2" data-glightbox="Product item 1"><img class="img-fluid" src="notAdmin/addProduct/images/<?php echo $row['product_image']; ?>" alt="..."></a></div>
                       <div class="swiper-slide h-auto"><a class="glightbox product-view" href="" data-gallery="gallery2" data-glightbox="Product item 2"><img class="img-fluid" src="" alt="..."></a></div>
                       <div class="swiper-slide h-auto"><a class="glightbox product-view" href="" data-gallery="gallery2" data-glightbox="Product item 3"><img class="img-fluid" src="" alt="..."></a></div>
                       <div class="swiper-slide h-auto"><a class="glightbox product-view" href="" data-gallery="gallery2" data-glightbox="Product item 4"><img class="img-fluid" src="" alt="..."></a></div>
@@ -190,7 +190,7 @@ if (isset($_SESSION['email'])) {
               <li class="list-inline-item m-0 4"><i class="fas fa-star small text-warning"></i></li>
             </ul>
             <?php
-            include("../Ecommerce/backend/connection.php");
+            include("backend/connection.php");
 
             if (isset($_GET['product'])) {
               $product = $_GET['product'];
@@ -214,7 +214,7 @@ if (isset($_SESSION['email'])) {
                   </div>
                 </div>
                 <?php
-                include("../Ecommerce/backend/connection.php");
+                include("backend/connection.php");
 
                 if (isset($_GET['product'])) {
                   $product = $_GET['product'];
@@ -286,7 +286,7 @@ if (isset($_SESSION['email'])) {
         <div class="row">
           <!-- PRODUCT-->
           <?php
-          include("../Ecommerce/backend/connection.php");
+          include("backend/connection.php");
 
           $sql = "SELECT * FROM products LIMIT 4";
           $result = mysqli_query($con, $sql);
@@ -297,7 +297,7 @@ if (isset($_SESSION['email'])) {
               <div class="product text-center skel-loader">
                 <div class="d-block mb-3 position-relative">
                   <a class="d-block" href="detail.php?product=<?php echo $row['product_id'] ?>">
-                    <img class="img-fluid w-100" src="../Ecommerce/notAdmin/addProduct/images/<?php echo $row['product_image']; ?>" alt="...">
+                    <img class="img-fluid w-100" src="notAdmin/addProduct/images/<?php echo $row['product_image']; ?>" alt="...">
                   </a>
                   <div class="product-overlay">
                     <ul class="mb-0 list-inline">

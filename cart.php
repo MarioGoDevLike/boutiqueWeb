@@ -1,5 +1,5 @@
 <?php
-include("../Ecommerce/backend/connection.php");
+include("backend/connection.php");
 session_start();
 $userName = "";
 
@@ -184,7 +184,7 @@ if (isset($_SESSION['email'])) {
                 <tbody class="border-0">
                   <?php
 
-                  include("../Ecommerce/backend/connection.php");
+                  include("backend/connection.php");
 
                   if (!empty($_SESSION['userId'])) {
 
@@ -202,7 +202,7 @@ if (isset($_SESSION['email'])) {
                           <div class="d-flex align-items-center">
                             <a class="reset-anchor d-block animsition-link" href="detail.php">
 
-                              <img src="../Ecommerce/notAdmin/addProduct/images/<?php echo $row['product_image']; ?>" width="70" alt="...">
+                              <img src="notAdmin/addProduct/images/<?php echo $row['product_image']; ?>" width="70" alt="...">
                             </a>
                             <div class="ms-3">
                               <strong class="h6">
@@ -253,7 +253,7 @@ if (isset($_SESSION['email'])) {
             <div class="card border-0 rounded-0 p-lg-4 bg-light">
               <div class="card-body">
                 <?php
-                include("../Ecommerce/backend/connection.php");
+                include("backend/connection.php");
                 $sum = 0;
 
                 if (empty($_SESSION['userId'])) {
