@@ -1,4 +1,7 @@
 <?php
+error_reporting(0);
+ini_set('display_errors', 0);
+
 include("../../backend/connection.php");
 
 $categoryName = $_POST['categoryName'];
@@ -8,7 +11,6 @@ $errorResult = 0;
 
 $sql2 = "SELECT * FROM category WHERE category_name = '$categoryName'";
 $result2 = mysqli_query($con, $sql2);
-
 if (isset($image)) {
     $errors = array();
     $file_name = $_FILES['image']['name'];
@@ -17,30 +19,19 @@ if (isset($image)) {
     $file_type = $_FILES['image']['type'];
     $file_ext = strtolower(end(explode('.', $file_name)));
     $extensions = array("jpeg", "jpg", "png");
-
     if (in_array($file_ext, $extensions) === false) {
         $errors[] = "Extension not allowed, please choose a JPEG or PNG file";
     }
     if ($file_size > 2097152) {
         $errors[] = "File size must be exactly 2MB";
     }
-
     if (empty($errors) == true) {
-        $upload_directory = "images/";
-        $target_path = $upload_directory . $file_name;
-
-        if (!file_exists($upload_directory)) {
-            mkdir($upload_directory, 0777, true); // Creates the directory with full permissions
+        if (!file_exists("images")) {
+            mkdir("images");
         }
 
-        if (move_uploaded_file($file_tmp, $target_path)) {
-            // File was successfully uploaded
-        } else {
-            echo "Failed to move uploaded file. Check directory permissions.";
-        }
+        move_uploaded_file($file_tmp, "images/" . $file_name);
     } else {
-        // Handle errors related to file upload
-        print_r($errors);
     }
 }
 
@@ -55,4 +46,3 @@ if (empty($categoryName)) {
     mysqli_query($con, $sql);
     header("location:../Dashboard/dashboard.php");
 }
-?>
