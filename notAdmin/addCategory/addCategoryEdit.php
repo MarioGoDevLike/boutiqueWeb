@@ -48,7 +48,6 @@ if (isset($_POST['submit'])) {
     $sql = "UPDATE category SET category_id='$id', category_name = '$category_Name', category_picture ='$file_name' WHERE category_id='$id'";
     $result = mysqli_query($con, $sql);
     if ($result) {
-        echo "Data Updated Successfully";
         header('location:../Dashboard/dashboard.php');
     } else {
         die(mysqli_error($con));
