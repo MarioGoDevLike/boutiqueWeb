@@ -31,7 +31,6 @@ if (isset($image)) {
         if (!file_exists("images")) {
             mkdir("images");
         }
-
         move_uploaded_file($file_tmp, "images/" . $file_name);
     } else {
     }
