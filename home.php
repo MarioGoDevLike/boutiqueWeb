@@ -375,8 +375,7 @@ if (isset($_SESSION['email'])) {
                 id: productId,
             },
             success: function(response) {
-                
-
+                window.location.href = "cart.php";
             }
         });
     }
