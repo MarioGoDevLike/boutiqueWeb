@@ -1,4 +1,6 @@
 <?php
+error_reporting(0);
+ini_set('display_errors', 0);
 include("connection.php");
 
 session_start();
@@ -23,6 +25,5 @@ if(mysqli_num_rows($result) > 0){
     
 }else{
     header("location:../login.php?error=1");
-
 }
 ?>
