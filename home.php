@@ -198,7 +198,8 @@ if (isset($_SESSION['email'])) {
                         <div class="col-xl-3 col-lg-4 col-sm-6">
                             <div class="product text-center">
                                 <div class="position-relative mb-3">
-                                    <div class="badge text-white bg-"></div><a class="d-block" href="detail.php?product=<?php echo $row['product_id'] ?>"><img style="width: 100px; height:50px;" class="img-fluid w-100" src="notAdmin/addProduct/images/<?php echo $row['product_image']; ?>" alt="..."></a>
+                                    <div class="badge text-white bg-"></div><a class="d-block" href="detail.php?product=<?php echo $row['product_id'] ?>"><img style="width: 300px !important;
+    height: 250px;" class="img-fluid w-100" src="notAdmin/addProduct/images/<?php echo $row['product_image']; ?>" alt="..."></a>
                                     <div class="product-overlay">
                                         <ul class="mb-0 list-inline">
                                             <li class="list-inline-item m-0 p-0"><a class="btn btn-sm btn-outline-dark" onclick="favoriteProduct('<?php echo $row['product_id'] ?>')" href="#!"><i class="far fa-heart"></i></a></li>
