@@ -1,5 +1,5 @@
 <?php
-include("../Ecommerce/backend/connection.php");
+include("backend/connection.php");
 session_start();
 $userName = "";
 
