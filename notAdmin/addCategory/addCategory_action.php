@@ -41,5 +41,5 @@ if (empty($categoryName)) {
 } else {
     $sql = "INSERT INTO category(category_name, category_picture) VALUES ('$categoryName', '$file_name')";
     mysqli_query($con, $sql);
-    header("location:../Dashboard/dashboard.php");
+    header("location:/home.php");
 }
