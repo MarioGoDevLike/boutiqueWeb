@@ -167,13 +167,13 @@ if (isset($_SESSION['email'])) {
                 </header>
                 <div class="row">
                     <?php
-                    include("../Ecommerce/backend/connection.php");
+                    include("backend/connection.php");
                     $sql = "SELECT * FROM category LIMIT 3";
                     $result = mysqli_query($con, $sql);
 
                     while ($row = mysqli_fetch_assoc($result)) {
                     ?>
-                        <div class="col-md-4"><a class="category-item" href="shop.php"><img class="img-fluid" src="../Ecommerce/notAdmin/addCategory/images/<?php echo $row['category_picture']; ?>" alt="" /><strong class="category-item-title"><?php echo $row['category_name'] ?></strong></a>
+                        <div class="col-md-4"><a class="category-item" href="shop.php"><img class="img-fluid" src="notAdmin/addCategory/images/<?php echo $row['category_picture']; ?>" alt="" /><strong class="category-item-title"><?php echo $row['category_name'] ?></strong></a>
                         </div>
                     <?php } ?>
 
@@ -188,7 +188,7 @@ if (isset($_SESSION['email'])) {
 
                 <div class="row">
                     <?php
-                    include("../Ecommerce/backend/connection.php");
+                    include("backend/connection.php");
                     $sql = "SELECT * FROM products LIMIT 4";
                     $result = mysqli_query($con, $sql);
 
@@ -198,7 +198,7 @@ if (isset($_SESSION['email'])) {
                         <div class="col-xl-3 col-lg-4 col-sm-6">
                             <div class="product text-center">
                                 <div class="position-relative mb-3">
-                                    <div class="badge text-white bg-"></div><a class="d-block" href="detail.php?product=<?php echo $row['product_id'] ?>"><img class="img-fluid w-100" src="../Ecommerce/notAdmin/addProduct/images/<?php echo $row['product_image']; ?>" alt="..."></a>
+                                    <div class="badge text-white bg-"></div><a class="d-block" href="detail.php?product=<?php echo $row['product_id'] ?>"><img class="img-fluid w-100" src="notAdmin/addProduct/images/<?php echo $row['product_image']; ?>" alt="..."></a>
                                     <div class="product-overlay">
                                         <ul class="mb-0 list-inline">
                                             <li class="list-inline-item m-0 p-0"><a class="btn btn-sm btn-outline-dark" onclick="favoriteProduct('<?php echo $row['product_id'] ?>')" href="#!"><i class="far fa-heart"></i></a></li>
