@@ -25,12 +25,13 @@ if (isset($_POST['submit'])) {
     $product_Price = $_POST['productPrice'];
 
 
-    $sql = "update products set product_id=$id, product_name = '$product_Name', product_category='$product_Category', product_description='$product_Description', product_price = '$product_Price' where product_id=$id";
+    $sql = "update products set product_id=$id, product_name = '$product_Name', product_category='$product_Category', product_description=\"$product_Description\", product_price = '$product_Price' where product_id=$id";
+    print_r($sql);
     $result = mysqli_query($con, $sql);
     if ($result) {
         header('location:../Dashboard/dashboard.php');
     } else {
-        die(mysqli_error($con));
+        die(mysqli_errno($con));
     }
 }
 

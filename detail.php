@@ -73,19 +73,19 @@ if (isset($_SESSION['email'])) {
                                                                                                                                                                     }
 
                                                                                                                                                                     ?>)</small></a></li>
-              <li class="nav-item"><a class="nav-link" href="#!"> <i class="far fa-heart me-1"></i><small class="text-gray fw-normal"> (<?php
-                                                                                                                                        if (!empty($_SESSION['userId'])) {
-                                                                                                                                          $user_Id = $_SESSION['userId'];
-                                                                                                                                          $sql = "SELECT * FROM user_favorite WHERE user_id = '$user_Id'";
-                                                                                                                                          $result = mysqli_query($con, $sql);
-                                                                                                                                          $row = mysqli_num_rows($result);
-                                                                                                                                          echo $row;
-                                                                                                                                        } else {
-                                                                                                                                          echo "0 ";
-                                                                                                                                        }
+              <li class="nav-item"><a class="nav-link" href="Favorites.php"> <i class="far fa-heart me-1"></i><small class="text-gray fw-normal"> (<?php
+                                                                                                                                                        if (!empty($_SESSION['userId'])) {
+                                                                                                                                                            $user_Id = $_SESSION['userId'];
+                                                                                                                                                            $sql = "SELECT * FROM user_favorite WHERE user_id = '$user_Id'";
+                                                                                                                                                            $result = mysqli_query($con, $sql);
+                                                                                                                                                            $row = mysqli_num_rows($result);
+                                                                                                                                                            echo $row;
+                                                                                                                                                        } else {
+                                                                                                                                                            echo "0 ";
+                                                                                                                                                        }
 
 
-                                                                                                                                        ?>)</small></a></li>
+                                                                                                                                                        ?>)</small></a></li>
               <?php
               if (empty($userName)) {
                 echo '<li class="nav-item"><a class="nav-link" href="login.php"> <i class="fas fa-user me-1 text-black fw-bold">Login</a></i>';
@@ -132,7 +132,7 @@ if (isset($_SESSION['email'])) {
                       </div>
                     </div>
                     <div class="col-sm-5"><a class="btn btn-dark btn-sm w-100 h-100 d-flex align-items-center justify-content-center px-0" href="cart.php">Add to cart</a></div>
-                  </div><a class="btn btn-link text-dark text-decoration-none p-0" href="#!"><i class="far fa-heart me-2"></i>Add to wish list</a>
+                  </div><a class="btn btn-link text-dark text-decoration-none p-0" href=""><i class="far fa-heart me-2"></i>Add to wish list</a>
                 </div>
               </div>
             </div>
@@ -220,7 +220,7 @@ if (isset($_SESSION['email'])) {
                   $product = $_GET['product'];
                 } ?>
                 <div class="col-sm-3 pl-sm-0"><a class="btn btn-sm btn-dark" onclick="storeProduct('<?php echo $row['product_id'] ?>')">Add to cart</a></div>
-              </div><a class="text-dark p-0 mb-4 d-inline-block" href="#!"><i class="far fa-heart me-2"></i>Add to wish list</a><br>
+              </div><a class="text-dark p-0 mb-4 d-inline-block" onclick="favoriteProduct('<?php echo $row['product_id'] ?>')" href=""><i class="far fa-heart me-2"></i>Add to wish list</a><br>
               <ul class="list-unstyled small d-inline-block">
                 <li class="px-3 py-2 mb-1 bg-white"><strong class="text-uppercase">SKU:</strong><span class="ms-2 text-muted">039</span></li>
                 <li class="px-3 py-2 mb-1 bg-white text-muted"><strong class="text-uppercase text-dark">Category:</strong><a class="reset-anchor ms-2" href="#!"><?php echo $row['product_category'] ?></a></li>
@@ -297,11 +297,12 @@ if (isset($_SESSION['email'])) {
               <div class="product text-center skel-loader">
                 <div class="d-block mb-3 position-relative">
                   <a class="d-block" href="detail.php?product=<?php echo $row['product_id'] ?>">
-                    <img class="img-fluid w-100" src="notAdmin/addProduct/images/<?php echo $row['product_image']; ?>" alt="...">
+                    <img style="width: 300px !important;
+    height: 250px;" class="img-fluid w-100" src="notAdmin/addProduct/images/<?php echo $row['product_image']; ?>" alt="...">
                   </a>
                   <div class="product-overlay">
                     <ul class="mb-0 list-inline">
-                      <li class="list-inline-item m-0 p-0"><a class="btn btn-sm btn-outline-dark" onclick="favoriteProduct('<?php echo $row['product_id'] ?>')" href="#!"><i class="far fa-heart"></i></a></li>
+                      <li class="list-inline-item m-0 p-0"><a class="btn btn-sm btn-outline-dark" onclick="favoriteProduct('<?php echo $row['product_id'] ?>')" href=""><i class="far fa-heart"></i></a></li>
                       <li class="list-inline-item m-0 p-0"><a class="btn btn-sm btn-dark" onclick="storeProduct('<?php echo $row['product_id'] ?>')" href="cart.php">Add to cart</a></li>
                     </ul>
                   </div>

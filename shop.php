@@ -4,16 +4,16 @@ session_start();
 $userName = "";
 
 if (isset($_SESSION['email'])) {
-    $sessionEmail = $_SESSION['email'];
-    $sql = "SELECT * FROM users WHERE email = '$sessionEmail'";
-    $result = mysqli_query($con, $sql);
-    if ($result) {
-        if ($row = mysqli_fetch_assoc($result)) {
-            $userName = $row['first_name'];
-        }
-    } else {
-        echo "Error in the query: " . mysqli_error($con);
+  $sessionEmail = $_SESSION['email'];
+  $sql = "SELECT * FROM users WHERE email = '$sessionEmail'";
+  $result = mysqli_query($con, $sql);
+  if ($result) {
+    if ($row = mysqli_fetch_assoc($result)) {
+      $userName = $row['first_name'];
     }
+  } else {
+    echo "Error in the query: " . mysqli_error($con);
+  }
 }
 ?>
 <!DOCTYPE html>
@@ -67,30 +67,30 @@ if (isset($_SESSION['email'])) {
             </ul>
             <ul class="navbar-nav ms-auto">
               <li class="nav-item"><a class="nav-link" href="cart.php"> <i class="fas fa-dolly-flatbed me-1 text-gray"></i>Cart<small class="text-gray fw-normal">(<?php
-              if(!empty($_SESSION['userId'])){
-                                                                                                                                                                    $user_Id = $_SESSION['userId'];
-                                                                                                                                                                    $sql = "SELECT * FROM user_cart WHERE user_id = '$user_Id'";
-                                                                                                                                                                    $result = mysqli_query($con, $sql);
-                                                                                                                                                                    $row = mysqli_num_rows($result);
-                                                                                                                                                                    echo $row;
-              }else{
-                echo '0';
-              }
-             
-             ?>)</small></a></li>
-              <li class="nav-item"><a class="nav-link" href="#!"> <i class="far fa-heart me-1"></i><small class="text-gray fw-normal"> (<?php
-              if(!empty($_SESSION['userId'])){
-                $user_Id = $_SESSION['userId'];
-                $sql = "SELECT * FROM user_favorite WHERE user_id = '$user_Id'";
-                $result = mysqli_query($con, $sql);
-                $row = mysqli_num_rows($result);
-                echo $row;
-              } else{
-                echo "0 ";
-              }
-              
-                                                                                                                                       
-                                                                                                                                        ?>)</small></a></li>
+                                                                                                                                                                    if (!empty($_SESSION['userId'])) {
+                                                                                                                                                                      $user_Id = $_SESSION['userId'];
+                                                                                                                                                                      $sql = "SELECT * FROM user_cart WHERE user_id = '$user_Id'";
+                                                                                                                                                                      $result = mysqli_query($con, $sql);
+                                                                                                                                                                      $row = mysqli_num_rows($result);
+                                                                                                                                                                      echo $row;
+                                                                                                                                                                    } else {
+                                                                                                                                                                      echo '0';
+                                                                                                                                                                    }
+
+                                                                                                                                                                    ?>)</small></a></li>
+              <li class="nav-item"><a class="nav-link" href="Favorites.php"> <i class="far fa-heart me-1"></i><small class="text-gray fw-normal"> (<?php
+                                                                                                                                                    if (!empty($_SESSION['userId'])) {
+                                                                                                                                                      $user_Id = $_SESSION['userId'];
+                                                                                                                                                      $sql = "SELECT * FROM user_favorite WHERE user_id = '$user_Id'";
+                                                                                                                                                      $result = mysqli_query($con, $sql);
+                                                                                                                                                      $row = mysqli_num_rows($result);
+                                                                                                                                                      echo $row;
+                                                                                                                                                    } else {
+                                                                                                                                                      echo "0 ";
+                                                                                                                                                    }
+
+
+                                                                                                                                                    ?>)</small></a></li>
               <?php
               if (empty($userName)) {
                 echo '<li class="nav-item"><a class="nav-link" href="login.php"> <i class="fas fa-user me-1 text-black fw-bold">Login</a></i>';
@@ -179,39 +179,31 @@ if (isset($_SESSION['email'])) {
           <div class="row">
             <!-- SHOP SIDEBAR-->
             <div class="col-lg-3 order-2 order-lg-1">
+
               <h5 class="text-uppercase mb-4">Categories</h5>
-              <div class="py-2 px-4 bg-dark text-white mb-3"><strong class="small text-uppercase fw-bold">Computers &amp; Acc</strong></div>
-              <ul class="list-unstyled small text-muted ps-lg-4 font-weight-normal">
-                <li class="mb-2"><a class="reset-anchor" id="monitorsLink" href="#!">Monitors</a></li>
-                <li class="mb-2"><a class="reset-anchor" href="#!">Mother Boards</a></li>
-                <li class="mb-2"><a class="reset-anchor" href="#!">CPUS</a></li>
-                <li class="mb-2"><a class="reset-anchor" href="#!">RAM</a></li>
-                <li class="mb-2"><a class="reset-anchor" href="#!">Hard Drive</a></li>
-                <li class="mb-2"><a class="reset-anchor" href="#!">GPU</a></li>
-              </ul>
-              <div class="py-2 px-4 bg-light mb-3"><strong class="small text-uppercase fw-bold">Phones &amp; Acc</strong></div>
-              <ul class="list-unstyled small text-muted ps-lg-4 font-weight-normal">
-                <li class="mb-2"><a class="reset-anchor" href="#!">Earbuds</a></li>
-                <li class="mb-2"><a class="reset-anchor" href="#!">Covers</a></li>
-                <li class="mb-2"><a class="reset-anchor" href="#!">Screen Protection</a></li>
-                <li class="mb-2"><a class="reset-anchor" href="#!">Adapters</a></li>
-                <li class="mb-2"><a class="reset-anchor" href="#!">Smart Watches</a></li>
-              </ul>
-              <div class="py-2 px-4 bg-light mb-3"><strong class="small text-uppercase fw-bold">Electronics</strong></div>
-              <ul class="list-unstyled small text-muted ps-lg-4 font-weight-normal mb-5">
-                <li class="mb-2"><a class="reset-anchor" href="#!">USB Flash drives</a></li>
-                <li class="mb-2"><a class="reset-anchor" href="#!">Headphones</a></li>
-                <li class="mb-2"><a class="reset-anchor" href="#!">Portable speakers</a></li>
-                <li class="mb-2"><a class="reset-anchor" href="#!">Keyboards</a></li>
-              </ul>
-
-
+              <div class="py-2 px-4 bg-dark text-white mb-3"><strong class="small text-uppercase fw-bold">Computers &amp; Phones Acc</strong></div>
+              <?php
+              include("../Ecommerce/backend/connection.php");
+              $sql = "SELECT * FROM category";
+              $result = mysqli_query($con, $sql);
+              while ($row = mysqli_fetch_assoc($result)) {
+              ?>
+                <ul class="list-unstyled small text-muted ps-lg-4 font-weight-normal">
+                  <li class="mb-2"><a class="reset-anchor" id="monitorsLink" href="#!"><?php echo $row['category_name'] ?></a></li>
+                </ul>
+              <?php } ?>
             </div>
             <!-- SHOP LISTING-->
             <div class="col-lg-9 order-1 order-lg-2 mb-5 mb-lg-0">
               <div class="row mb-3 align-items-center">
                 <div class="col-lg-6 mb-2 mb-lg-0">
-                  <p class="text-sm text-muted mb-0">Showing 1–12 of 53 results</p>
+                  <?php
+                  include("../Ecommerce/backend/connection.php");
+                  $sql = "SELECT * FROM category";
+                  $result = mysqli_query($con, $sql);
+                  $numRows = mysqli_num_rows($result);
+                  ?>
+                  <p class="text-sm text-muted mb-0">Showing  <?php echo $numRows?>  Items you can shop!</p>
                 </div>
                 <div class="col-lg-6">
                   <ul class="list-inline d-flex align-items-center justify-content-lg-end mb-0">
@@ -245,7 +237,9 @@ if (isset($_SESSION['email'])) {
 
                       <div class="mb-3 position-relative">
 
-                        <div class="badge text-white bg-"></div><a class="d-block" href="detail.php?product=<?php echo $row['product_id'] ?>"><img class="img-fluid w-100" src="notAdmin/addProduct/images/<?php echo $row['product_image']; ?>" alt="..."></a>
+                        <div class="badge text-white bg-"></div><a class="d-block" href="detail.php?product=<?php echo $row['product_id'] ?>">
+                          <img style="width: 500px !important;
+    height: 350px;"" class=" img-fluid w-100" src="notAdmin/addProduct/images/<?php echo $row['product_image']; ?>" alt="..."></a>
                         <div class="product-overlay">
                           <ul class="mb-0 list-inline">
                             <li class="list-inline-item m-0 p-0"><a class="btn btn-sm btn-outline-dark" onclick="favoriteProduct('<?php echo $row['product_id'] ?>')" href="#!"><i class="far fa-heart"></i></a></li>
@@ -254,7 +248,7 @@ if (isset($_SESSION['email'])) {
                         </div>
                       </div>
                       <h6> <a class="reset-anchor" href="detail.php"><?php echo $row['product_name'] ?></a></h6>
-                      <p class="small text-muted"><?php echo $row['product_name'] ?></p>
+                      <p class="small text-muted"><?php echo $row['product_price'] ?>$</p>
 
                     </div>
 

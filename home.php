@@ -80,7 +80,7 @@ if (isset($_SESSION['email'])) {
                                                                                                                                                                                     }
 
                                                                                                                                                                                     ?>)</small></a></li>
-                            <li class="nav-item"><a class="nav-link" href="#!"> <i class="far fa-heart me-1"></i><small class="text-gray fw-normal"> (<?php
+                            <li class="nav-item"><a class="nav-link" href="Favorites.php"> <i class="far fa-heart me-1"></i><small class="text-gray fw-normal"> (<?php
                                                                                                                                                         if (!empty($_SESSION['userId'])) {
                                                                                                                                                             $user_Id = $_SESSION['userId'];
                                                                                                                                                             $sql = "SELECT * FROM user_favorite WHERE user_id = '$user_Id'";
@@ -173,7 +173,8 @@ if (isset($_SESSION['email'])) {
 
                     while ($row = mysqli_fetch_assoc($result)) {
                     ?>
-                        <div class="col-md-4"><a class="category-item" href="shop.php"><img class="img-fluid" src="notAdmin/addCategory/images/<?php echo $row['category_picture']; ?>" alt="" /><strong class="category-item-title"><?php echo $row['category_name'] ?></strong></a>
+                        <div class="col-md-4"><a class="category-item" href="shop.php"><img style="width: 500px !important;
+    height: 250px;"" class="img-fluid" src="notAdmin/addCategory/images/<?php echo $row['category_picture']; ?>" alt="" /><strong class="category-item-title"><?php echo $row['category_name'] ?></strong></a>
                         </div>
                     <?php } ?>
 

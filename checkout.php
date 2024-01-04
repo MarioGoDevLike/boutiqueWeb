@@ -76,19 +76,19 @@ if (isset($_SESSION['email'])) {
                                                                                                                                                                     }
 
                                                                                                                                                                     ?>)</small></a></li>
-              <li class="nav-item"><a class="nav-link" href="#!"> <i class="far fa-heart me-1"></i><small class="text-gray fw-normal"> (<?php
-                                                                                                                                        if (!empty($_SESSION['userId'])) {
-                                                                                                                                          $user_Id = $_SESSION['userId'];
-                                                                                                                                          $sql = "SELECT * FROM user_favorite WHERE user_id = '$user_Id'";
-                                                                                                                                          $result = mysqli_query($con, $sql);
-                                                                                                                                          $row = mysqli_num_rows($result);
-                                                                                                                                          echo $row;
-                                                                                                                                        } else {
-                                                                                                                                          echo "0 ";
-                                                                                                                                        }
+              <li class="nav-item"><a class="nav-link" href="Favorites.php"> <i class="far fa-heart me-1"></i><small class="text-gray fw-normal"> (<?php
+                                                                                                                                                    if (!empty($_SESSION['userId'])) {
+                                                                                                                                                      $user_Id = $_SESSION['userId'];
+                                                                                                                                                      $sql = "SELECT * FROM user_favorite WHERE user_id = '$user_Id'";
+                                                                                                                                                      $result = mysqli_query($con, $sql);
+                                                                                                                                                      $row = mysqli_num_rows($result);
+                                                                                                                                                      echo $row;
+                                                                                                                                                    } else {
+                                                                                                                                                      echo "0 ";
+                                                                                                                                                    }
 
 
-                                                                                                                                        ?>)</small></a></li>
+                                                                                                                                                    ?>)</small></a></li>
               <?php
               if (empty($userName)) {
                 echo '<li class="nav-item"><a class="nav-link" href="login.php"> <i class="fas fa-user me-1 text-black fw-bold">Login</a></i>';
